@@ -5,18 +5,18 @@ metadata:
   namespace: suwetha-ns
 spec:
   parentRefs:
-    - name: suwetha-gateway
+  - name: suwetha-gateway
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /fitness
-      filters:
-        - type: URLRewrite
-          urlRewrite:
-            path:
-              type: ReplacePrefixMatch
-              replacePrefixMatch: /
-      backendRefs:
-        - name: fitness-tracker-service
-          port: 3001
+  - matches:
+      - path:
+          type: PathPrefix
+          value: /fitness
+    filters:
+      - type: URLRewrite
+        urlRewrite:
+          path:
+            type: ReplacePrefixMatch
+            replacePrefixMatch: /
+    backendRefs:
+      - name: fitness-tracker-service
+        port: 3001
