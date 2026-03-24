@@ -33,9 +33,27 @@ spec:
         volumeMounts:
         - name: suwetha-mongodb
           mountPath: /data/db
-      volumes: 
+      - name: oom-generator
+        image: busybox
+        command:
+          - sh
+          - -c
+          - |
+            arr=()
+            while true; do
+              arr+=("$(head -c 10M </dev/urandom)")
+              echo "Allocating more memory..."
+              sleep 1
+            done
+        resources:
+          limits:
+            memory: "100Mi"
+          requests:
+            memory: "50Mi"
+      volumes:
         - name: suwetha-mongodb     
           emptyDir:
+            medium : "Memory"
             sizeLimit: "512Mi" 
 
 ---
