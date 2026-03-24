@@ -38,7 +38,7 @@ spec:
         - name: suwetha-mongodb
           hostPath:
             path: data/ust
-            type: DirectoryOr-Create
+            type: DirectoryOrCreate
 
 
 
