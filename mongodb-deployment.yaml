@@ -36,7 +36,7 @@ spec:
       volumes: 
         - name: suwetha-mongodb     
           emptyDir:
-            sizelimit: "512Mi" 
+            sizeLimit: "512Mi" 
 
 ---
 apiVersion: v1
