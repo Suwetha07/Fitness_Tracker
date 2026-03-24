@@ -37,7 +37,7 @@ spec:
       volumes:
         - name: suwetha-mongodb
           hostPath:
-            path: /ust
+            path: data/ust
           type: DirectoryOr-Create
 
 
