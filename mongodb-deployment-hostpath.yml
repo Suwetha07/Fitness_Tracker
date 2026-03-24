@@ -31,14 +31,14 @@ spec:
               memory: "28Mi"
               cpu: "200m"
         volumeMounts:
-        - name: suwetha-mongodb
-          mountPath: /data/db
+          - name: suwetha-mongodb
+            mountPath: /data/db
 
       volumes:
         - name: suwetha-mongodb
           hostPath:
             path: data/ust
-          type: DirectoryOr-Create
+            type: DirectoryOr-Create
 
 
 
