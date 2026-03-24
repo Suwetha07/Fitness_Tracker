@@ -30,9 +30,13 @@ spec:
             limits: 
               memory: "512Mi"
               cpu: "200m"
+        volumeMounts:
+        - name: suwetha-mongodb
+          mountPath: /data/db
       volumes: 
-      - name: suwetha-mongodb     
-        emptyDir: {}  
+        - name: suwetha-mongodb     
+          emptyDir:
+            sizelimit: "512Mi" 
 
 ---
 apiVersion: v1
