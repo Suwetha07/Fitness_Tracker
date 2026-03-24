@@ -41,5 +41,24 @@ spec:
           type: DirectoryOr-Create
 
 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: suwetha-ns
+spec:
+  selector:
+    app: mongodb
+  ports:
+  - port: 27017
+    targetPort: 27017
+  type: ClusterIP
+ 
+ 
+
+
+
  
  
