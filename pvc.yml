@@ -1,2 +1,11 @@
 apiVersion: v1
-kind:
+kind: PersistenceVolumeClaim
+metadata:
+   name:  mongo-pvc
+   namespace: suwetha-ns
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 8Gi
