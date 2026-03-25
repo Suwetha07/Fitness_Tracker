@@ -19,8 +19,7 @@ spec:
         app: mongodb
     spec:
       
-      securityContext:
-          fsGroup: 999
+      
 
       containers:
       - name: mongodb
