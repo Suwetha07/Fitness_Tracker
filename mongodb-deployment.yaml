@@ -39,7 +39,7 @@ spec:
       volumes:
         - name: suwetha-mongodb
           persistentVolumeClaim:
-            claimName: mongo-pvc1
+            claimName: mongo-pvc
      
  
 ---
