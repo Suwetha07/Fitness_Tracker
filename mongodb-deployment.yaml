@@ -35,9 +35,10 @@ spec:
           mountPath: /data/db
 
       volumes:
-        - name: suwetha-mongodb     
-          emptyDir:
-            sizeLimit: "512Mi" 
+        - name: suwetha-mongodb 
+          persistentVolumeClaim:    
+            claimName: mongo-pvc
+         
 
 ---
 apiVersion: v1
