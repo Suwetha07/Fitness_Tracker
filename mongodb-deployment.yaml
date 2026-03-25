@@ -30,12 +30,12 @@ spec:
             memory: "512Mi"
             cpu: "200m"
         volumeMounts:
-          - name: eli-data
+          - name: suwetha-mongodb
             mountPath: /data/db
       volumes:
-        - name: eli-data
+        - name: suwetha-mongodb
           persistentVolumeClaim:
-            claimName: mongo-pvc
+            claimName: mongo-pvc1
      
  
 ---
@@ -51,28 +51,28 @@ spec:
     targetPort: 27017
   type: ClusterIP
 
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#    name: mongo-pv1
-# spec:
-#   capacity:
-#     storage: 10Gi
-#   accessModes:
-#     - ReadWriteMany
-#   persistentVolumeReclaimPolicy: Retain
-#   nfs:
-#     path: /var/nfs/general
-#     server: 3.110.77.109 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: mongo-pv1
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /var/nfs/general
+    server: 3.110.77.109 
 
-#     apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#    name: mongo-pvc1
-#    namespace: suwetha-ns
-# spec:
-#   accessModes:
-#     - ReadWriteMany
-#   resources:
-#     requests:
-#       storage: 8Gi
+    apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: mongo-pvc1
+   namespace: suwetha-ns
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 8Gi
