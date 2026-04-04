@@ -26,14 +26,30 @@ spec:
         training: "devops"
       affinity:
         nodeAffinity:
-          preferredDuringSchedulingIngnoreDuringExecution:
-          - weight: 1
+          requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-            - matchExpressions:
-              - key: training
-                operator: NotIn
-                values:
-                - devops
+              - matchExpressions:
+                  - key: training
+                    operator: In
+                    values:
+                      - devops
+
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              preference:
+                matchExpressions:
+                  - key: training
+                    operator: NotIn
+                    values:
+                      - test
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 10
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: fitness-tracker-app
+                topologyKey: "kubernetes.io/hostname"
       containers:
         - name: fitness-tracker-app
           image: pulkit197/fitness_tracker-master-copy3-fitness-app:latest
