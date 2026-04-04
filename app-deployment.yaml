@@ -26,7 +26,7 @@ spec:
         training: "devops"
       affinity:
         nodeAffinity:
-          prferredDuringSchedulingIngnoreDuringExecution:
+          preferredDuringSchedulingIngnoreDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
               - key: training
