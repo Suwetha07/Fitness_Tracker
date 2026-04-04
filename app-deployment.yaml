@@ -30,7 +30,7 @@ spec:
             nodeSelectorTerms:
             - matchExpressions:
               - key: training
-                operator: In
+                operator: NotIn
                 values:
                 - devops
       containers:
