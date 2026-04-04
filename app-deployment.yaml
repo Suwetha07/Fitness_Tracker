@@ -42,14 +42,6 @@ spec:
                     operator: NotIn
                     values:
                       - test
-        podAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 10
-              podAffinityTerm:
-                labelSelector:
-                  matchLabels:
-                    app: fitness-tracker-app
-                topologyKey: "kubernetes.io/hostname"
       containers:
         - name: fitness-tracker-app
           image: pulkit197/fitness_tracker-master-copy3-fitness-app:latest
