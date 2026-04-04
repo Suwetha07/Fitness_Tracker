@@ -27,6 +27,7 @@ spec:
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIngnoreDuringExecution:
+          - weight: 1
             nodeSelectorTerms:
             - matchExpressions:
               - key: training
