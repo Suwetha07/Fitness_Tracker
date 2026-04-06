@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fitness-tracker-app
-  namespace: suwetha-ns
+  namespace: suwetha1-ns
 spec:
   replicas: 2
   strategy:
