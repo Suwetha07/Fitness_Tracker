@@ -39,9 +39,9 @@ spec:
       #         preference:
       #           matchExpressions:
       #             - key: training
-      #               operator: NotIn
+      #               operator: In
       #               values:
-      #                 - test
+      #                 - devops
       #   podAffinity:
       #     preferredDuringSchedulingIgnoredDuringExecution:
       #       - weight: 10
@@ -51,7 +51,7 @@ spec:
       #               app: fitness-tracker-app
       #           topologyKey: "kubernetes.io/hostname"
       tolerations:
-        -key: "train"
+      - key: "train"
         operator: "Equal"
         value: "devops"
         effect: "NoSchedule"         
@@ -60,7 +60,6 @@ spec:
           image: pulkit197/fitness_tracker-master-copy3-fitness-app:latest
           ports:
             - containerPort: 5000
-      
           resources:
             requests:
               memory: "256Mi"
