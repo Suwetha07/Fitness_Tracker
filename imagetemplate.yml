@@ -13,7 +13,7 @@ spec:
         package k8snolatest
 
         violation[{"msg": msg}] {
-          container := input.review.object.spec.containers[_]
+          container := input.review.object.spec.template.spec.containers[_]
           endswith(container.image, ":latest")
           msg := sprintf("Container %v uses latest tag", [container.name])
         }
