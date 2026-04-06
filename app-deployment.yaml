@@ -22,26 +22,39 @@ spec:
           [{"source":"nodejs","service":"fitness-tracker-service"},
            {"source":"nodejs","service":"fitness-tracker-app"}]
     spec:
-      nodeSelector:
-        training: "devops"
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: training
-                    operator: In
-                    values:
-                      - devops
+      # nodeSelector:
+      #   training: "devops"
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: training
+      #               operator: In
+      #               values:
+      #                 - devops
 
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 1
-              preference:
-                matchExpressions:
-                  - key: training
-                    operator: NotIn
-                    values:
-                      - test
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+      #       - weight: 1
+      #         preference:
+      #           matchExpressions:
+      #             - key: training
+      #               operator: NotIn
+      #               values:
+      #                 - test
+      #   podAffinity:
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+      #       - weight: 10
+      #         podAffinityTerm:
+      #           labelSelector:
+      #             matchLabels:
+      #               app: fitness-tracker-app
+      #           topologyKey: "kubernetes.io/hostname"
+      tolerations:
+        -key: "train"
+        operator: "Equal"
+        value: "devops"
+        effect: "NoSchedule"         
       containers:
         - name: fitness-tracker-app
           image: pulkit197/fitness_tracker-master-copy3-fitness-app:latest
