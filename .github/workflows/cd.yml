@@ -1,0 +1,17 @@
+name: fitness-tracker-app-cd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print Message
+        run: echo "Hello, CI/CD is working!"
