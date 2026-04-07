@@ -35,7 +35,7 @@ jobs:
       - name: Tag Image
         run: docker tag ci-cd-app username/ci-cd-app:latest
 
-      # 8. Push image
+   
       - name: Push Image
         run: docker push username/ci-cd-app:latest
 
