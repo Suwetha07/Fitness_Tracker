@@ -2,7 +2,7 @@ name: Node CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   ci-cd:
@@ -23,7 +23,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # 4. Run tests
       - name: Run Tests
         run: npm test
 
