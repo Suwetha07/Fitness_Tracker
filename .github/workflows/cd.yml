@@ -2,8 +2,7 @@ name: Node CI/CD (Docker Only)
 
 on:
   push:
-    branches: [ "master" ]   # change to master if needed
-
+    branches: [ "master" ]   
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
