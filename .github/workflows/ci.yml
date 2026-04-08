@@ -1,4 +1,4 @@
-name: fitness-tracker-app CI/CD
+name: fitness-tracker-app CI
 
 on:
   push:
